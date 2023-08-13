@@ -1,0 +1,30 @@
+import ClientGateway from "../../gateway/client.gateway";
+import { FindClientInputDto, FindClientOutputDto } from "./find-client.usecase.dto";
+
+export default class FindClientUseCase {
+    private _clientRepository: ClientGateway;
+
+    constructor(clientRepository: ClientGateway) {
+        this._clientRepository = clientRepository;
+    }
+
+    async execute(input: FindClientInputDto): Promise<FindClientOutputDto> {
+        const client = await this._clientRepository.find(input.id);
+
+        return {
+            id: client.id.id,
+            name: client.name,
+            email: client.email,
+            document: client.document,
+            address: client.address,
+            street: client.street,
+            city: client.city,
+            complement: client.complement,
+            number: client.number,
+            state: client.state,
+            zipCode: client.zipCode,
+            createdAt: client.createdAt,
+            updatedAt: client.updatedAt,
+        }
+    }
+}
