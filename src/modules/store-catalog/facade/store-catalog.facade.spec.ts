@@ -29,6 +29,8 @@ describe("StoreCatalogFacade test", () => {
             name: "Product 1",
             description: "Description 1",
             salesPrice: 100,
+            createdAt: new Date(),
+            updatedAt: new Date(),
         });
 
         const result = await facade.find({

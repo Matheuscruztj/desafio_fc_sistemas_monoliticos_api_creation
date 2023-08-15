@@ -1,4 +1,6 @@
-import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { BelongsToMany, Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import OrderModel from "../../checkout/repository/order.model";
+import { OrderItemModel } from "../../checkout/repository/order_item.model";
 
 @Table({
     tableName: "products",
@@ -17,4 +19,10 @@ export default class ProductModel extends Model {
 
     @Column({ allowNull: false })
     declare salesPrice: number;
+
+    @Column({ allowNull: false })
+    declare createdAt: Date;
+
+    @Column({ allowNull: false })
+    declare updatedAt: Date;
 }
