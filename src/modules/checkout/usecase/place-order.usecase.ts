@@ -1,4 +1,3 @@
-import { or } from "sequelize";
 import Id from "../../@shared/domain/value-object/id.value-object";
 import UseCaseInterface from "../../@shared/usecase/use-case.interface";
 import ClientAdmFacadeInterface from "../../client-adm/facade/client-adm.facade.interface";
@@ -98,11 +97,12 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
             status: order.status,
             total: order.total,
             products: order.products.map((p) => {
-              return {
+                return {
                 productId: p.id.id,
-              }  
+                }  
             }),
         }
+        
     }
 
     private async validateProducts(input: PlaceOrderInputDto): Promise<void> {

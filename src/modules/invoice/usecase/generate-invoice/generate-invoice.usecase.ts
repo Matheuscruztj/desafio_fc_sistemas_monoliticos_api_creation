@@ -53,6 +53,7 @@ export class GenerateInvoiceUseCase implements UseCaseInterface{
 
         await Promise.all(
             productList.map(async ({ product }) => {
+                await this._productRepository.create(product);
                 await this._productRepository.find(product.id.id);
             }),
         )

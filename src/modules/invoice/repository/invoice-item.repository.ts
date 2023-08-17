@@ -7,8 +7,8 @@ export default class InvoiceItemRepository implements InvoiceItemInterface {
     async create(invoiceItem: InvoiceItem): Promise<void> {
         await InvoiceItemModel.create({
             id: invoiceItem.id.id,
-            product_id: invoiceItem.productId,
-            invoice_id: invoiceItem.invoiceId,
+            productId: invoiceItem.productId,
+            invoiceId: invoiceItem.invoiceId,
             quantity: invoiceItem.quantity,
             createdAt: invoiceItem.createdAt,
             updatedAt: invoiceItem.updatedAt,
@@ -17,7 +17,7 @@ export default class InvoiceItemRepository implements InvoiceItemInterface {
     async findByInvoiceId(invoiceId: string): Promise<InvoiceItem[]> {
         const invoiceItems = await InvoiceItemModel.findAll({
             where: {
-                invoice_id: invoiceId,
+                invoiceId: invoiceId,
             }
         });
 
@@ -28,8 +28,8 @@ export default class InvoiceItemRepository implements InvoiceItemInterface {
         return invoiceItems.map((item) => 
             new InvoiceItem({
                 id: new Id(item.id),
-                productId: item.product_id,
-                invoiceId: item.invoice_id,
+                productId: item.productId,
+                invoiceId: item.invoiceId,
                 quantity: item.quantity,
                 createdAt: item.createdAt,
                 updatedAt: item.updatedAt,
@@ -39,7 +39,7 @@ export default class InvoiceItemRepository implements InvoiceItemInterface {
     async findById(id: string): Promise<InvoiceItem> {
         const invoiceItem = await InvoiceItemModel.findOne({
             where: {
-                invoice_id: id,
+                invoiceId: id,
             }
         });
 
@@ -49,8 +49,8 @@ export default class InvoiceItemRepository implements InvoiceItemInterface {
 
         return new InvoiceItem({
             id: new Id(invoiceItem.id),
-            productId: invoiceItem.product_id,
-            invoiceId: invoiceItem.invoice_id,
+            productId: invoiceItem.productId,
+            invoiceId: invoiceItem.invoiceId,
             quantity: invoiceItem.quantity,
             createdAt: invoiceItem.createdAt,
             updatedAt: invoiceItem.updatedAt,

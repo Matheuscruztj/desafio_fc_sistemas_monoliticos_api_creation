@@ -65,8 +65,8 @@ describe("InvoiceItemRepository test", () => {
         });
 
         expect(invoiceItemDb).toBeDefined();
-        expect(invoiceItemDb.product_id).toBe(invoiceItem.productId);
-        expect(invoiceItemDb.invoice_id).toBe(invoiceItem.invoiceId);
+        expect(invoiceItemDb.productId).toBe(invoiceItem.productId);
+        expect(invoiceItemDb.invoiceId).toBe(invoiceItem.invoiceId);
         expect(invoiceItemDb.quantity).toBe(invoiceItem.quantity);
     });
 
@@ -95,8 +95,8 @@ describe("InvoiceItemRepository test", () => {
 
         const invoiceItem = await InvoiceItemModel.create({
             id: "1",
-            invoice_id: invoice.id,
-            product_id: product.id,
+            invoiceId: invoice.id,
+            productId: product.id,
             quantity: 1,
             createdAt: new Date(),
             updatedAt: new Date(),
@@ -107,8 +107,8 @@ describe("InvoiceItemRepository test", () => {
 
         expect(result).toBeDefined();
         expect(result.id.id).toBe(invoiceItem.id);
-        expect(result.productId).toBe(invoiceItem.product_id);
-        expect(result.invoiceId).toBe(invoiceItem.invoice_id);
+        expect(result.productId).toBe(invoiceItem.productId);
+        expect(result.invoiceId).toBe(invoiceItem.invoiceId);
         expect(result.quantity).toBe(invoiceItem.quantity);
         expect(result.createdAt).toStrictEqual(invoiceItem.createdAt);
         expect(result.updatedAt).toStrictEqual(invoiceItem.updatedAt);
@@ -139,8 +139,8 @@ describe("InvoiceItemRepository test", () => {
 
         const invoiceItem = await InvoiceItemModel.create({
             id: "1",
-            invoice_id: invoice.id,
-            product_id: product.id,
+            invoiceId: invoice.id,
+            productId: product.id,
             quantity: 1,
             createdAt: new Date(),
             updatedAt: new Date(),
@@ -152,8 +152,8 @@ describe("InvoiceItemRepository test", () => {
         expect(result).toBeDefined();
         expect(result).toHaveLength(1);
         expect(result[0].id.id).toBe(invoiceItem.id);
-        expect(result[0].invoiceId).toBe(invoiceItem.invoice_id);
-        expect(result[0].productId).toBe(invoiceItem.product_id);
+        expect(result[0].invoiceId).toBe(invoiceItem.invoiceId);
+        expect(result[0].productId).toBe(invoiceItem.productId);
         expect(result[0].quantity).toBe(invoiceItem.quantity);
         expect(result[0].createdAt).toStrictEqual(invoiceItem.createdAt);
         expect(result[0].updatedAt).toStrictEqual(invoiceItem.updatedAt);

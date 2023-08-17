@@ -6,7 +6,7 @@ import OrderRepository from "./order.repository";
 import { OrderItemModel } from "./order_item.model";
 import Id from "../../@shared/domain/value-object/id.value-object";
 import OrderModel from "./order.model";
-import ProductModel from "../../store-catalog/repository/product.model";
+import { ProductModel } from "../../store-catalog/repository/product.model";
 import Product from "../domain/product.entity";
 
 describe("OrderRepository", () => {

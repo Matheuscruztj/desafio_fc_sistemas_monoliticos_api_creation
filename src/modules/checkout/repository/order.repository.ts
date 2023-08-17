@@ -1,6 +1,6 @@
 import Id from "../../@shared/domain/value-object/id.value-object";
 import { ClientModel } from "../../client-adm/repository/client.model";
-import ProductModel from "../../store-catalog/repository/product.model";
+import { ProductModel } from "../../store-catalog/repository/product.model";
 import Client from "../domain/client.entity";
 import Order from "../domain/order.entity";
 import Product from "../domain/product.entity";

@@ -13,14 +13,14 @@ export class InvoiceItemModel extends Model {
 
     @ForeignKey(() => ProductModel)
     @Column({ allowNull: false })
-    declare product_id: string;
+    declare productId: string;
 
     @BelongsTo(() => ProductModel)
     declare product: ProductModel;
 
     @ForeignKey(() => InvoiceModel)
     @Column({ allowNull: false })
-    declare invoice_id: string;
+    declare invoiceId: string;
   
     @BelongsTo(() => InvoiceModel)
     declare invoice: InvoiceModel;

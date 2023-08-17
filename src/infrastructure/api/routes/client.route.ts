@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express"
-import ClientAdmFacadeFactory from "../../modules/client-adm/factory/client-adm.facade.factory";
-import { AddClientInputDto } from "../../modules/client-adm/usecase/add-client/add-client.usecase.dto";
+import ClientAdmFacadeFactory from "../../../modules/client-adm/factory/client-adm.facade.factory";
+import { AddClientInputDto } from "../../../modules/client-adm/usecase/add-client/add-client.usecase.dto";
 
-export const clientRoute = express.Router()
+export const clientRoute = express.Router();
 
 clientRoute.post("/", async (req: Request, res: Response) => {
   const usecase = ClientAdmFacadeFactory.create();
@@ -20,12 +20,12 @@ clientRoute.post("/", async (req: Request, res: Response) => {
       number: req.body.number,
       street: req.body.street,
       zipCode: req.body.zipCode,
-    }
+    };
 
     const output = await usecase.add(clientDto);
 
-    res.send(output)
+    res.send(output);
   } catch (err) {
-    res.status(500).send(err)
+    res.status(500).send(err);
   }
 });
