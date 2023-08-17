@@ -5,7 +5,7 @@ import { ProductModel } from "./product.model";
 
 export default class ProductRepository implements ProductInterface {
     async create(product: Product): Promise<void> {
-        await ProductModel.create({
+        await ProductModel.upsert({
             id: product.id.id,
             name: product.name,
             price: product.price,

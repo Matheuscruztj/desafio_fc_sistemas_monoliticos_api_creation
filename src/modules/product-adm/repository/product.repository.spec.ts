@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize-typescript";
 import Id from "../../@shared/domain/value-object/id.value-object";
 import Product from "../domain/product.entity";
 import ProductRepository from "./product.repository";
-import ProductModel from "./product.model";
+import { ProductModel } from "./product.model";
 
 describe("ProductRepository test", () => {
     let sequelize: Sequelize;
@@ -29,6 +29,7 @@ describe("ProductRepository test", () => {
             name: "Product 1",
             description: "Product 1 description",
             purchasePrice: 100,
+            salesPrice: 150,
             stock: 10,
         };
 
@@ -57,6 +58,7 @@ describe("ProductRepository test", () => {
             name: "Product 1",
             description: "Product 1 description",
             purchasePrice: 100,
+            salesPrice: 150,
             stock: 10,
             createdAt: new Date(),
             updatedAt: new Date(),
